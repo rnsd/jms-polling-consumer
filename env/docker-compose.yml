@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  activemq:
+    hostname: activemq
+    image: webcenter/activemq
+    ports:
+      #jms
+      - 61616:61616
+      #console
+      - 8161:8161
+    volumes:
+      - ./activemq.xml:/opt/activemq/conf/activemq.xml
