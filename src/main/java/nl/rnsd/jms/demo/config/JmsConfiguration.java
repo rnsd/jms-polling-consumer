@@ -16,13 +16,14 @@ import static javax.jms.Session.CLIENT_ACKNOWLEDGE;
 @Configuration
 @EnableJms
 public class JmsConfiguration {
-    @Bean
-    public Queue createQueue() {
-        return new ActiveMQQueue("test.queue");
-    }
 
     private static final String BROKER_URL = "tcp://localhost:61616";
     private static final String DESTINATION = "test.queue";
+
+    @Bean
+    public Queue createQueue() {
+        return new ActiveMQQueue(DESTINATION);
+    }
 
     @Bean
     public ActiveMQConnectionFactory senderConnectionFactory() {

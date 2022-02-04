@@ -21,38 +21,38 @@ import java.util.List;
 @Slf4j
 public class ConsumerBasedQueueService {
 
-//    private ActiveMQConnection connection;
-//    private ActiveMQSession session;
-//    private ActiveMQMessageConsumer consumer;
-//    private ActiveMQMessageProducer producer;
-//
-//    public ConsumerBasedQueueService(
-//    ) throws JMSException {
-//        init(
-//            "test.queue",
-//            "tcp://localhost:61616",
-//            "admin",
-//            "admin");
-//    }
-//
-//    public Message poll() throws JMSException {
-//        return consumer.receiveNoWait();
-//    }
-//
-//    public void send(String payload) throws JMSException {
-//        ActiveMQTextMessage message = new ActiveMQTextMessage();
-//        message.setText(payload);
-//        producer.send(message);
-//    }
-//
-//    public void recover() throws JMSException {
-//        session.recover();
-//    }
-//
-//    private void init(String queueName,
-//                      String brokerUrl,
-//                      String brokerUsername,
-//                      String brokerPassword) throws JMSException {
+    private ActiveMQConnection connection;
+    private ActiveMQSession session;
+    private ActiveMQMessageConsumer consumer;
+    private ActiveMQMessageProducer producer;
+
+    public ConsumerBasedQueueService(
+    ) throws JMSException {
+        init(
+            "test.queue",
+            "tcp://localhost:61616",
+            "admin",
+            "admin");
+    }
+
+    public Message poll() throws JMSException {
+        return consumer.receiveNoWait();
+    }
+
+    public void send(String payload) throws JMSException {
+        ActiveMQTextMessage message = new ActiveMQTextMessage();
+        message.setText(payload);
+        producer.send(message);
+    }
+
+    public void recover() throws JMSException {
+        session.recover();
+    }
+
+    private void init(String queueName,
+                      String brokerUrl,
+                      String brokerUsername,
+                      String brokerPassword) throws JMSException {
 //        var connectionFactory = new ActiveMQConnectionFactory(brokerUrl);
 //        connectionFactory.setTrustedPackages(List.of("nl.rnsd.jms.demo"));
 //
@@ -68,12 +68,12 @@ public class ConsumerBasedQueueService {
 //        Destination destinationFrom = session.createQueue(queueName);
 //        this.consumer = (ActiveMQMessageConsumer) session.createConsumer(destinationFrom);
 //        this.producer = (ActiveMQMessageProducer) session.createProducer(destinationFrom);
-//    }
-//
-//    @PreDestroy
-//    private void close() throws JMSException {
-//        session.close();
-//        connection.close();
-//    }
+    }
+
+    @PreDestroy
+    private void close() throws JMSException {
+        session.close();
+        connection.close();
+    }
 
 }
